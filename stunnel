@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ X"${SSH_TUNNEL_REMOTE_SERVER}" == X ]
+then
+    echo "Please set environment 'SSH_TUNNEL_REMOTE_SERVER'"
+    exit 1
+fi
+
+if [ X"${SSH_TUNNEL_REMOTE_USER}" == X ]
+then
+    echo "Please set environment 'SSH_TUNNEL_REMOTE_USER'"
+    exit 1
+fi
+
+ssh -N -D 8800 ${SSH_TUNNEL_REMOTE_USER}@${SSH_TUNNEL_REMOTE_SERVER}

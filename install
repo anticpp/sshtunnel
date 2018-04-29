@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+    echo "usage: $0 <install-path>"
+    exit 1
+fi
+
+install=$1
+
+if ! test -d ${install} 
+then
+    mkdir -vp ${install}
+fi
+
+cp -fv ./stunnel "${install}/"
+chmod +x ${install}/stunnel
